@@ -1,33 +1,44 @@
-import { validateTextArea, validateNumberRepeated, irOrdered } from "../validators/validators.js";
-import { stringToNumberArray } from "../algorithms/tools.js";
+import { validateTextArea, validateNumberRepeated, isOrdered } from "../validators/validators.js";
+import { stringToNumberArray, mergeSort } from "../algorithms/tools.js";
 
-const textarea = document.querySelector("#input__txtArea");
+const textArea = document.querySelector("#input__txtArea");
 const binarySearch = document.querySelector("#binary__search");
-const mergeSort = document.querySelector("#merge__sort");
+const mergeSortItem = document.querySelector("#merge__sort");
 const displayTextarea = document.querySelector("#display__txtArea");
 
-textarea.addEventListener("blur", function (e) {
+textArea.addEventListener("blur", function (e) {
     e.preventDefault();
-    validateTextArea(textarea);
+    validateTextArea(textArea);
 });
 
 binarySearch.addEventListener("click", function (e) {
     e.preventDefault();
-    const textAreaContent = textarea.value.replace(/\s+/g, '');
-    if (validateTextArea(textarea)) {
+    const textAreaContent = textArea.value.replace(/\s+/g, '');
+    if (validateTextArea(textArea)) {
         const array = stringToNumberArray(textAreaContent);
         console.log(array);
+        const valid = validateNumberRepeated(array);
+        const validArray = isOrdered(array);
+
+        if (valid && validArray){
+
+            //continuo despues de la creacion de la entrada
+
+
+        }
         /*  validar si hay numeros repetidos, si está ordenado y realizar la búsqueda, los 
         métodos ya están hechos e importados*/
     }
 });
 
-mergeSort.addEventListener("click", function (e) {
+mergeSortItem.addEventListener("click", function (e) {
     e.preventDefault();
-    const textAreaContent = textarea.value.replace(/\s+/g, '');
-    if (validateTextArea(textarea)) {
+    const textAreaContent = textArea.value.replace(/\s+/g, '');
+    if (validateTextArea(textArea)) {
         const array = stringToNumberArray(textAreaContent);
         console.log(array);
+        const resultMerge = mergeSort(array);
+        displayTextarea.value = resultMerge;
         /* implementar el mergeSort*/
     }
 });

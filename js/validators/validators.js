@@ -41,7 +41,7 @@ export function validateNumberRepeated(array) {
     return valid;
 }
 
-export function irOrdered(array) {
+export function isOrdered(array) {
     let isOrderedAscending = true;
     let isOrderedDescending = true;
 

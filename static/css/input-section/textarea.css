@@ -4,7 +4,7 @@
     background-color: var(--cor-de-fundo1);
     border-radius: 15px;
     padding: 15px;
-    height: 30vh;
+    height: 30vh; 
     width: 37vw;
     overflow: auto;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
